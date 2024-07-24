@@ -14,7 +14,7 @@ echo "Model max length: $model_max_length, VLLM max length: $vllm_max_length"
 
 # Start the model vllm hosting
 # nohup python -m vllm.entrypoints.openai.api_server --model "$model_name" --max-model-len $vllm_max_length --dtype auto --api-key token-abc123 --port "$port" --trust-remote-code > data/arena-hard-v0.1/server_output.log 2>&1 &
-python -m vllm.entrypoints.openai.api_server --model "$model_name" --tensor-parallel-size $tensor_parallel_size --max-model-len $vllm_max_length --disable-custom-all-reduce --dtype auto --api-key token-abc123 --port "$port" --trust-remote-code &
+python -m vllm.entrypoints.openai.api_server --model "$model_name" --tensor-parallel-size $tensor_parallel_size --max-model-len $vllm_max_length --dtype auto --api-key token-abc123 --port "$port" --trust-remote-code &
 
 # Wait for the server to start
 sleep 30
