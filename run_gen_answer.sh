@@ -7,6 +7,7 @@ question_file="${3:-question.jsonl}" # Default question_file value is 'question.
 output_dir="${4:-None}"  # Default output_dir value is 'None'
 tensor_parallel_size="${5:-1}" # Default tensor_parallel_size value is 1
 
+
 model_max_length=$(jq '.max_position_embeddings' $model_name/config.json)
 # vllm max length is 8192 if model max length is greater than 8192 or model_max_length does not exist
 vllm_max_length=$((model_max_length > 8192 || model_max_length == null ? 8192 : model_max_length))
